@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: producer-v2
+  labels:
+    app: producer-v2
+spec:
+  containers:
+  - image: dafonso/producer-amqp:1
+    name: producer-v2
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: producer-spring-v2
+spec:
+  selector:
+    app: producer-v2
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8080
+      nodePort: 30074
+  type: NodePort

@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: rabbitmq-sender
+  labels:
+    app: rabbitmq-sender
+spec:
+  containers:
+  - image: dafonso/rabbitmq-sender
+    name: rabbitmq-sender
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: rabbitmq-receiver
+  labels:
+    app: rabbitmq-receiver
+spec:
+  containers:
+  - image: dafonso/rabbitmq-receiver
+    name: rabbitmq-receiver
