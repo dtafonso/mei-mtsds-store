@@ -10,6 +10,11 @@ Vagrant.configure("2") do |config|
 
     args = []
     config.vm.provision "shell",
+        path: "https://github.com/dtafonso/mei-mtsds-store/raw/master/vagrant/scripts/docker.sh",
+        args: args
+      
+    args = []
+    config.vm.provision "shell",
         path: "https://github.com/dtafonso/mei-mtsds-store/raw/master/vagrant/scripts/minikube.sh",
         args: args
 
